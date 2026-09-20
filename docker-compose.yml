@@ -1,0 +1,12 @@
+services:
+  mediaforge-backend:
+    build: .
+    ports: ["8787:8787"]
+    environment:
+      PORT: 8787
+      FRONTEND_ORIGIN: http://localhost:8787
+      DATABASE_PATH: /app/data/mediaforge.db
+    volumes:
+      - mediaforge-data:/app/data
+volumes:
+  mediaforge-data:

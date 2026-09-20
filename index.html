@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101828"><meta name="description" content="MEDIAFORGE — authorized public media analyzer and downloader">
+<title>MEDIAFORGE</title><link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.json">
+</head>
+<body>
+<header class="top"><div><strong>MEDIAFORGE</strong><span>REAL MEDIA ANALYSIS</span></div><div id="backendBadge" class="badge neutral">Backend checking…</div></header>
+<main class="shell">
+<section class="panel hero"><div><p class="eyebrow">AUTHORIZED MEDIA TOOL</p><h1>Analyze the URL before you download.</h1><p class="lede">MEDIAFORGE distinguishes direct media, public media pages and supported manifests. It never invents formats or bypasses access controls.</p></div>
+<form id="analyzeForm" class="analyze"><label for="url">Public media URL</label><div class="urlrow"><input id="url" type="url" autocomplete="url" placeholder="https://example.com/media" required><button id="analyzeBtn" type="submit">Analyze</button></div><p id="sourceStatus" class="status">Waiting for a URL.</p></form></section>
+<section class="grid">
+<article class="panel" id="resultPanel"><div class="section-head"><h2>Source analysis</h2><span id="sourceType" class="badge neutral">Not analyzed</span></div><div id="resultBody" class="empty">Enter a URL and run analysis. The backend will inspect redirects, HTTP metadata, public HTML metadata and supported manifests.</div></article>
+<article class="panel"><div class="section-head"><h2>Engine health</h2></div><div id="healthGrid" class="health"><div><span>Backend</span><b>Checking…</b></div><div><span>Analyzer</span><b>Checking…</b></div><div><span>Downloader</span><b>Checking…</b></div><div><span>FFmpeg</span><b>Checking…</b></div><div><span>Storage</span><b>Checking…</b></div></div><div class="notice">GitHub Pages hosts the static frontend. Node.js/Express and SQL run on the backend server.</div></article>
+</section>
+<section class="panel transfer" id="transferPanel"><div class="section-head"><h2>Live transfer</h2><span id="transferState" class="badge neutral">Idle</span></div><div class="transferbar"><div id="transferFill"></div><div id="snake"></div></div><div class="transfer-percent"><strong id="transferPercent">—</strong><span id="transferAmount">0 B</span></div><div class="stats"><div><span>Speed</span><b id="speed">—</b></div><div><span>Average</span><b id="avgSpeed">—</b></div><div><span>ETA</span><b id="eta">—</b></div><div><span>Elapsed</span><b id="elapsed">00:00</b></div></div><div class="actions"><button id="cancelBtn" disabled>Cancel</button><button id="retryBtn" disabled>Retry</button></div><p id="transferError" class="status"></p></section>
+<section class="panel"><div class="section-head"><h2>Download history</h2><button id="clearHistory" class="ghost">Clear</button></div><div id="history" class="history empty">No downloads yet.</div></section>
+</main><footer>MEDIAFORGE reports only information it can actually determine. DRM, authentication, paywalls and access-control bypass are not supported.</footer>
+<script type="module" src="app.js"></script><script>if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
+</body></html>
